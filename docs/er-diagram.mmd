@@ -1,0 +1,26 @@
+erDiagram
+    USERS ||--o{ WORK_ORDERS : "assigned to"
+    USERS ||--o{ WORK_ORDERS : created
+    USERS ||--o{ INTERNAL_TRANSFERS : dispatched
+    USERS ||--o{ INTERNAL_TRANSFERS : received
+    USERS ||--o{ CUSTOMER_ORDERS : places
+    USERS ||--o{ INVENTORY_TRANSACTIONS : performed
+
+    CATEGORIES ||--o{ ITEMS : groups
+    ITEMS ||--o{ BATCHES : "has lots"
+    ITEMS ||--o{ INVENTORY : "stocked as"
+    LOCATIONS ||--o{ INVENTORY : "holds"
+    ITEMS ||--o{ INVENTORY_TRANSACTIONS : "moved"
+    LOCATIONS ||--o{ INVENTORY_TRANSACTIONS : "at"
+    BATCHES |o--o{ INVENTORY_TRANSACTIONS : "lot detail"
+
+    ITEMS ||--o{ WORK_ORDERS : "required for"
+    LOCATIONS ||--o{ WORK_ORDERS : "checked at"
+
+    LOCATIONS ||--o{ INTERNAL_TRANSFERS : source
+    LOCATIONS ||--o{ INTERNAL_TRANSFERS : destination
+    ITEMS ||--o{ INTERNAL_TRANSFERS : transferred
+
+    CUSTOMER_ORDERS ||--|{ CUSTOMER_ORDER_ITEMS : contains
+    ITEMS ||--o{ CUSTOMER_ORDER_ITEMS : ordered
+    LOCATIONS ||--o{ CUSTOMER_ORDER_ITEMS : "reserved at"

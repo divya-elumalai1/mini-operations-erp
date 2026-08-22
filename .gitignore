@@ -1,0 +1,58 @@
+### IntelliJ IDEA ###
+.idea/
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+.kotlin
+*.iml
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Java / Maven ###
+backend/target/
+*.class
+*.jar
+!**/maven-wrapper.jar
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+
+### Node / Frontend ###
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+*.local
+
+### Environment / secrets ###
+.env
+.env.*
+!.env.example
+
+### Logs ###
+logs/
+*.log
+
+### Local tooling state ###
+.pgdata/
