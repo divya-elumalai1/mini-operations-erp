@@ -52,5 +52,5 @@ This file is updated as phases complete; the final column set is verified in Pha
 | DOC3 | CONCURRENCY.md incl. race-prevention explanation | `docs/CONCURRENCY.md` | review | Planned |
 | DOC4 | TRANSACTIONS.md boundaries | `docs/TRANSACTIONS.md` | review | Planned |
 | DOC5 | FUTURE-CHANGES.md (damaged stock, partial receipt, cancellation, location scoping) | `docs/FUTURE-CHANGES.md` | review | Planned |
-| DOC6 | INTERVIEW-PREP.md grounded in actual implementation | `docs/INTERVIEW-PREP.md` | review | Planned |
+| DOC6 | Interview prep doc | removed per request | — |
 | G1 | Progressive git history (no single giant commit) | git log | review | Planned |

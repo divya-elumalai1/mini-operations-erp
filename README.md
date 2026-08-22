@@ -142,7 +142,6 @@ proven by `OrderReservationIT.concurrentReservationsNeverOversell`.
 - [`docs/ER-DIAGRAM.md`](docs/ER-DIAGRAM.md) · `er-diagram.mmd` — schema diagram
 - [`docs/FUTURE-CHANGES.md`](docs/FUTURE-CHANGES.md) — damaged stock, partial receipt, cancellation, location scoping
 - [`docs/FINAL-CHECKLIST.md`](docs/FINAL-CHECKLIST.md) — evaluator-style verification table
-- [`docs/INTERVIEW-PREP.md`](docs/INTERVIEW-PREP.md) — answers grounded in this codebase
 
 ## Known assumptions
 

@@ -68,7 +68,6 @@ smoke test over HTTP (login, JWT, role rejection, Swagger, UI proxy).
 | Concurrency rationale | `docs/CONCURRENCY.md` | ✅ |
 | Transaction boundaries | `docs/TRANSACTIONS.md` | ✅ |
 | Future-change readiness | `docs/FUTURE-CHANGES.md` | ✅ |
-| Interview prep | `docs/INTERVIEW-PREP.md` | ✅ |
 | Docker compose (PostgreSQL) | `docker-compose.yml` | 📄 config provided (not executed here — native PG used) |
 | `.env.example` | `.env.example` | ✅ |
 | Progressive git history | logical commits per phase | ✅ |
