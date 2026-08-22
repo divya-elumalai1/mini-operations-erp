@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${TEST_DB_HOST:localhost}:${TEST_DB_PORT:5432}/${TEST_DB_NAME:mini_erp_test}
+    username: ${TEST_DB_USER:${user.name}}
+    password: ${TEST_DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    clean-disabled: false
+
+minierp:
+  jwt:
+    secret: test-only-jwt-secret-min-32-bytes-for-tests!!
+    expiration-minutes: 60
+
+logging:
+  level:
+    com.minierp: WARN

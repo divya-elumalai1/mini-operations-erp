@@ -12,6 +12,7 @@ import com.minierp.repository.InternalTransferRepository;
 import com.minierp.repository.ItemRepository;
 import com.minierp.repository.LocationRepository;
 import com.minierp.repository.UserRepository;
+import jakarta.persistence.EntityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -31,17 +32,20 @@ public class TransferService {
     private final LocationRepository locationRepository;
     private final UserRepository userRepository;
     private final InventoryLedger ledger;
+    private final EntityManager entityManager;
 
     public TransferService(InternalTransferRepository transferRepository,
                            ItemRepository itemRepository,
                            LocationRepository locationRepository,
                            UserRepository userRepository,
-                           InventoryLedger ledger) {
+                           InventoryLedger ledger,
+                           EntityManager entityManager) {
         this.transferRepository = transferRepository;
         this.itemRepository = itemRepository;
         this.locationRepository = locationRepository;
         this.userRepository = userRepository;
         this.ledger = ledger;
+        this.entityManager = entityManager;
     }
 
     @Transactional
@@ -89,7 +93,7 @@ public class TransferService {
                     "Transfer %s was dispatched concurrently".formatted(transfer.getTransferNumber()));
         }
         log.info("Transfer dispatched: {} by {}", transfer.getTransferNumber(), username);
-        return OrderTransferMapper.toResponse(loadWithDetails(id));
+        return freshResponse(id);
     }
 
     /**
@@ -116,6 +120,16 @@ public class TransferService {
                     "Transfer %s was already received".formatted(transfer.getTransferNumber()));
         }
         log.info("Transfer received: {} by {}", transfer.getTransferNumber(), username);
+        return freshResponse(id);
+    }
+
+    /**
+     * The status guard updates bypass the persistence context; detach everything and
+     * re-read so the returned state reflects what was actually written.
+     */
+    private TransferResponse freshResponse(Long id) {
+        entityManager.flush();
+        entityManager.clear();
         return OrderTransferMapper.toResponse(loadWithDetails(id));
     }
 
